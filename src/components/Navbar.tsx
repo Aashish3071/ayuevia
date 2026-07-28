@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Droplets, Phone, Menu, X, ChevronRight, Award, ShieldCheck } from "lucide-react";
+import { Droplets, Phone, Menu, X, ChevronRight, ShieldCheck } from "lucide-react";
 
 interface NavbarProps {
   onOpenDistributorModal?: () => void;
@@ -15,14 +15,12 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Sticky navbar threshold
       if (window.scrollY > 20) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
       }
 
-      // Scroll progress
       const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
       if (totalScroll > 0) {
         setScrollProgress((window.scrollY / totalScroll) * 100);
@@ -33,15 +31,15 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Clean, focused navigation links (prevents cramped text wrap)
   const navLinks = [
-    { name: "Home", href: "#hero" },
-    { name: "About Us", href: "#about" },
+    { name: "About", href: "#about" },
     { name: "Why Us", href: "#why-choose-us" },
-    { name: "Purification Tech", href: "#process" },
+    { name: "Purification", href: "#process" },
     { name: "Products", href: "#products" },
-    { name: "Quality & Safety", href: "#quality" },
+    { name: "Quality", href: "#quality" },
     { name: "Who We Serve", href: "#business" },
-    { name: "Distributor Partner", href: "#distributor" },
+    { name: "Distributor", href: "#distributor" },
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" },
   ];
@@ -59,37 +57,38 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
       <header
         className={`fixed top-1 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
-            ? "bg-white/85 backdrop-blur-md shadow-md py-3 border-b border-brand-blue/10"
-            : "bg-transparent py-5"
+            ? "bg-white/90 backdrop-blur-md shadow-sm py-2.5 border-b border-brand-blue/10"
+            : "bg-transparent py-4"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-4">
+            
             {/* Brand Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 rounded-full bg-gradient-to-tr from-brand-blue to-brand-aqua p-0.5 shadow-md group-hover:scale-105 transition-transform duration-300">
+            <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-brand-blue to-brand-aqua p-0.5 shadow-sm group-hover:scale-105 transition-transform duration-300">
                 <div className="w-full h-full bg-white rounded-full flex items-center justify-center">
-                  <Droplets className="w-6 h-6 text-brand-blue animate-pulse" />
+                  <Droplets className="w-5 h-5 sm:w-6 sm:h-6 text-brand-blue animate-pulse" />
                 </div>
               </div>
-              <div className="flex flex-col">
-                <span className="font-display font-extrabold text-xl sm:text-2xl text-slate-900 tracking-tight flex items-center gap-1.5">
+              <div className="flex flex-col whitespace-nowrap">
+                <span className="font-display font-black text-lg sm:text-xl text-slate-900 tracking-tight leading-none flex items-center gap-1">
                   ASA <span className="text-brand-blue">BEVERAGES</span>
                 </span>
-                <span className="text-[10px] font-semibold tracking-widest text-brand-gold uppercase flex items-center gap-1">
-                  <ShieldCheck className="w-3 h-3 text-brand-gold" />
-                  Mfr of Aquevia Mineral Water
+                <span className="text-[9px] sm:text-[10px] font-extrabold tracking-widest text-brand-gold uppercase flex items-center gap-1 mt-0.5">
+                  <ShieldCheck className="w-3 h-3 text-brand-gold shrink-0" />
+                  Mfr. of Aquevia Water
                 </span>
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden lg:flex items-center gap-6">
+            {/* Desktop Navigation Links (Single Line, Never Wraps) */}
+            <nav className="hidden xl:flex items-center gap-5 whitespace-nowrap">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="text-sm font-medium text-slate-700 hover:text-brand-blue transition-colors duration-200"
+                  className="text-xs sm:text-sm font-semibold text-slate-700 hover:text-brand-blue transition-colors duration-200 whitespace-nowrap"
                 >
                   {link.name}
                 </a>
@@ -97,79 +96,78 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
             </nav>
 
             {/* Desktop Actions */}
-            <div className="hidden lg:flex items-center gap-4">
+            <div className="hidden lg:flex items-center gap-3 shrink-0 whitespace-nowrap">
               <a
                 href="tel:+919870170922"
-                className="flex items-center gap-2 text-sm font-semibold text-slate-800 hover:text-brand-blue transition-colors px-3 py-2 rounded-lg hover:bg-brand-sky/50"
+                className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:text-brand-blue transition-colors px-3 py-2 rounded-xl bg-slate-100/70 hover:bg-brand-sky/60 whitespace-nowrap"
               >
-                <Phone className="w-4 h-4 text-brand-blue" />
+                <Phone className="w-3.5 h-3.5 text-brand-blue shrink-0" />
                 <span>+91 9870170922</span>
               </a>
 
               <button
                 onClick={onOpenDistributorModal}
-                className="relative inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-white transition-all duration-300 bg-gradient-to-r from-brand-blue to-brand-aqua rounded-full shadow-md hover:shadow-lg hover:scale-105 active:scale-95 group overflow-hidden"
+                className="relative inline-flex items-center justify-center px-4 py-2.5 text-xs font-extrabold text-white transition-all duration-300 bg-gradient-to-r from-brand-blue to-brand-aqua rounded-full shadow-sm hover:shadow-md hover:scale-105 active:scale-95 group overflow-hidden whitespace-nowrap"
               >
-                <span className="relative z-10 flex items-center gap-2">
+                <span className="relative z-10 flex items-center gap-1.5">
                   Get Distribution
-                  <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </span>
-                <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </button>
             </div>
 
-            {/* Mobile Menu Toggle Button */}
-            <div className="flex items-center gap-3 lg:hidden">
-              <a
-                href="tel:+919870170922"
-                className="p-2 rounded-full bg-brand-sky text-brand-blue hover:bg-brand-blue hover:text-white transition-colors"
-                aria-label="Call ASA Beverages"
+            {/* Mobile & Tablet Toggle Button */}
+            <div className="flex items-center gap-2 xl:hidden">
+              <button
+                onClick={onOpenDistributorModal}
+                className="px-3 py-1.5 bg-gradient-to-r from-brand-blue to-brand-aqua text-white font-extrabold text-xs rounded-full shadow-sm"
               >
-                <Phone className="w-5 h-5" />
-              </a>
+                Distributor
+              </button>
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2.5 text-slate-700 hover:text-brand-blue rounded-lg bg-slate-100/80 focus:outline-none"
+                className="p-2 text-slate-700 hover:text-brand-blue rounded-xl bg-slate-100/80 focus:outline-none"
                 aria-label="Toggle menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
+
           </div>
         </div>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Mobile / Tablet Drawer Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-4 pt-3 pb-6 shadow-xl animate-in slide-in-from-top-4 duration-200">
-            <div className="flex flex-col space-y-3">
+          <div className="xl:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top-4 duration-200">
+            <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-3 py-2 rounded-lg text-base font-medium text-slate-800 hover:bg-brand-sky hover:text-brand-blue transition-colors flex items-center justify-between"
+                  className="px-3 py-2 rounded-xl text-sm font-semibold text-slate-800 hover:bg-brand-sky hover:text-brand-blue transition-colors flex items-center justify-between"
                 >
                   {link.name}
                   <ChevronRight className="w-4 h-4 text-slate-400" />
                 </a>
               ))}
-              <div className="pt-4 border-t border-slate-100 flex flex-col gap-3">
+              <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenDistributorModal?.();
                   }}
-                  className="w-full py-3 px-4 bg-gradient-to-r from-brand-blue to-brand-aqua text-white text-center font-bold rounded-xl shadow-md flex items-center justify-center gap-2"
+                  className="w-full py-3 px-4 bg-gradient-to-r from-brand-blue to-brand-aqua text-white text-center font-bold rounded-xl shadow-md flex items-center justify-center gap-2 text-xs"
                 >
                   Become a Distributor Partner
                   <ChevronRight className="w-4 h-4" />
                 </button>
                 <a
                   href="tel:+919870170922"
-                  className="w-full py-3 px-4 bg-slate-100 text-slate-800 text-center font-semibold rounded-xl flex items-center justify-center gap-2"
+                  className="w-full py-2.5 px-4 bg-slate-100 text-slate-800 text-center font-semibold rounded-xl flex items-center justify-center gap-2 text-xs"
                 >
-                  <Phone className="w-4 h-4 text-brand-blue" />
-                  Call Us: +91 9870170922
+                  <Phone className="w-3.5 h-3.5 text-brand-blue" />
+                  Call Hotline: +91 9870170922
                 </a>
               </div>
             </div>
