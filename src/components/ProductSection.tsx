@@ -22,7 +22,7 @@ export default function ProductSection({ onSelectProductForInquiry }: ProductSec
       image: "/images/aquevia_bottle_1l.jpg",
       tagline: "Our Flagship Daily Hydration Size",
       purification: "RO + UV + Ozonized + Minerals",
-      features: ["Food Grade PET Bottle", "Ergonomic Grip Design", "Tamper-Proof Seal", "Balanced pH 7.2-7.5"],
+      features: ["Food Grade PET Bottle", "Ergonomic Grip Design", "Tamper-Proof White Cap", "Balanced pH 7.2-7.5"],
       packaging: "Case of 12 Bottles",
     },
     {
@@ -34,19 +34,19 @@ export default function ProductSection({ onSelectProductForInquiry }: ProductSec
       image: "/images/aquevia_jar_20l.jpg",
       tagline: "High Capacity Office & Home Hydration",
       purification: "Multi-stage RO + Ozonized Hygiene",
-      features: ["BPA-Free Heavy PET", "Spill-Proof Dispenser Cap", "Integrated Side Handle", "Multi-Use Recyclable"],
+      features: ["BPA-Free Heavy PET", "Spill-Proof White Cap", "Integrated Side Handle", "Multi-Use Recyclable"],
       packaging: "Individual Sealed Unit",
     },
     {
       id: "range-collection",
       name: "Aquevia Complete Size Range",
-      capacity: "500ml, 1L, 2L, 5L",
+      capacity: "500ml, 1L, 2L",
       category: "range",
       isPrimary: false,
       image: "/images/aquevia_range.jpg",
       tagline: "Complete Portfolio For All Occasions",
       purification: "100% Certified Pure Drinking Water",
-      features: ["Convenient Travel 500ml", "Standard 1L & 2L Cans", "5L Family Pantry Can", "Custom Bulk Branding"],
+      features: ["Convenient Travel 500ml", "Standard 1L Bottle", "Family 2L Pack", "Custom Bulk Branding"],
       packaging: "Custom Shrink Wrapped Cases",
     },
   ];
@@ -73,7 +73,7 @@ export default function ProductSection({ onSelectProductForInquiry }: ProductSec
           </h2>
 
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-            Engineered in precision food-grade PET bottles, Aquevia provides pure, refreshing drinking water tailored for personal use, corporate offices, events, and commercial retail.
+            Engineered in precision food-grade PET bottles with white hygienic caps, Aquevia provides pure, refreshing drinking water tailored for personal use, corporate offices, events, and commercial retail.
           </p>
 
           {/* Filter Bar */}
