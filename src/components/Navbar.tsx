@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Droplets, Phone, Menu, X, ChevronRight, ShieldCheck } from "lucide-react";
+import { Phone, Menu, X, ChevronRight } from "lucide-react";
+import Logo from "./Logo";
 
 interface NavbarProps {
   onOpenDistributorModal?: () => void;
@@ -31,7 +32,6 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Clean, focused navigation links (prevents cramped text wrap)
   const navLinks = [
     { name: "About", href: "#about" },
     { name: "Why Us", href: "#why-choose-us" },
@@ -39,7 +39,6 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
     { name: "Products", href: "#products" },
     { name: "Quality", href: "#quality" },
     { name: "Who We Serve", href: "#business" },
-    { name: "Distributor", href: "#distributor" },
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" },
   ];
@@ -64,25 +63,10 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between gap-4">
             
-            {/* Brand Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group shrink-0">
-              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-gradient-to-tr from-brand-blue to-brand-aqua p-0.5 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                <div className="w-full h-full bg-white rounded-full flex items-center justify-center">
-                  <Droplets className="w-5 h-5 sm:w-6 sm:h-6 text-brand-blue animate-pulse" />
-                </div>
-              </div>
-              <div className="flex flex-col whitespace-nowrap">
-                <span className="font-display font-black text-lg sm:text-xl text-slate-900 tracking-tight leading-none flex items-center gap-1">
-                  ASA <span className="text-brand-blue">BEVERAGES</span>
-                </span>
-                <span className="text-[9px] sm:text-[10px] font-extrabold tracking-widest text-brand-gold uppercase flex items-center gap-1 mt-0.5">
-                  <ShieldCheck className="w-3 h-3 text-brand-gold shrink-0" />
-                  Mfr. of Aquevia Water
-                </span>
-              </div>
-            </Link>
+            {/* Official Brand Logo */}
+            <Logo variant="light" />
 
-            {/* Desktop Navigation Links (Single Line, Never Wraps) */}
+            {/* Desktop Navigation Links */}
             <nav className="hidden xl:flex items-center gap-5 whitespace-nowrap">
               {navLinks.map((link) => (
                 <a

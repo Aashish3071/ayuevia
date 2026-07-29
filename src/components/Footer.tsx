@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { Droplets, Phone, MapPin, ShieldCheck, Instagram, Facebook, Linkedin, Twitter, Award } from "lucide-react";
+import { Phone, MapPin, Instagram, Facebook, Linkedin, Twitter, Award } from "lucide-react";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
@@ -12,23 +13,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           
-          {/* Brand Info */}
+          {/* Brand Info with Official Logo */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-brand-gold to-yellow-400 p-0.5 shadow-md">
-                <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
-                  <Droplets className="w-6 h-6 text-brand-gold" />
-                </div>
-              </div>
-              <div>
-                <span className="font-display font-black text-2xl text-white tracking-tight">
-                  ASA <span className="text-brand-gold">BEVERAGES</span>
-                </span>
-                <span className="text-[10px] font-bold text-brand-aqua uppercase tracking-wider block">
-                  Mfr. of Aquevia Packaged Water
-                </span>
-              </div>
-            </div>
+            <Logo variant="dark" />
 
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
               <strong className="text-white font-semibold">Pure By Nature. Safe By Choice.</strong> ASA Beverages delivers premium packaged drinking water purified using advanced 9-stage RO, UV, and Ozonization technology.
@@ -72,7 +59,6 @@ export default function Footer() {
             <ul className="space-y-2 text-xs font-medium text-slate-400">
               <li><a href="#quality" className="hover:text-brand-aqua transition-colors">Committed to Quality</a></li>
               <li><a href="#business" className="hover:text-brand-aqua transition-colors">Who We Serve</a></li>
-              <li><a href="#distributor" className="hover:text-brand-aqua transition-colors">Become a Distributor</a></li>
               <li><a href="#faq" className="hover:text-brand-aqua transition-colors">FAQ</a></li>
               <li><a href="#contact" className="hover:text-brand-aqua transition-colors">Contact Us</a></li>
             </ul>
