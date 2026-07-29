@@ -2,21 +2,21 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { ShieldCheck, Award, FileCheck, CheckCircle2, Building, Sparkles } from "lucide-react";
+import { ShieldCheck, Award, FileCheck, CheckCircle2, Sparkles } from "lucide-react";
 
 export default function QualityCertifications() {
   const certs = [
     {
       title: "FSSAI License",
-      subtitle: "Food Safety & Standards Authority of India",
+      subtitle: "Lic. No.: 22726696000236",
       code: "FSSAI Certified",
       icon: Award,
-      desc: "Full statutory compliance under the Food Safety Act, ensuring non-toxic, edible safety standards across all manufacturing phases.",
+      desc: "Full statutory compliance under the Food Safety Act, ensuring edible safety standards across all manufacturing phases.",
     },
     {
       title: "Food Safety Management",
       subtitle: "HACCP & Hygiene Certified Cleanroom",
-      code: "Cleanroom Class 100",
+      code: "Class 100 Cleanroom",
       icon: ShieldCheck,
       desc: "Hazard Analysis Critical Control Point protocols enforced throughout touchless robotic bottling lines.",
     },
@@ -50,7 +50,7 @@ export default function QualityCertifications() {
             Regulatory & <span className="text-gradient-water">Quality Certifications</span>
           </h2>
           <p className="text-sm text-slate-500">
-            Independently audited and certified for complete customer confidence and safety.
+            FSSAI License No. 22726696000236 &bull; Independently audited and certified for complete safety.
           </p>
         </div>
 
