@@ -9,7 +9,6 @@ import PurificationProcess from "@/components/PurificationProcess";
 import ProductSection from "@/components/ProductSection";
 import QualitySection from "@/components/QualitySection";
 import BusinessSection from "@/components/BusinessSection";
-import DistributionSection from "@/components/DistributionSection";
 import QualityCertifications from "@/components/QualityCertifications";
 import FaqSection from "@/components/FaqSection";
 import ContactSection from "@/components/ContactSection";
@@ -83,9 +82,6 @@ export default function Home() {
 
       {/* Business Section (Who We Serve) */}
       <BusinessSection onOpenInquiry={handleOpenInquiryWithRequirement} />
-
-      {/* Distribution Section (B2B Leads) */}
-      <DistributionSection onOpenDistributorModal={() => setDistributorModalOpen(true)} />
 
       {/* Certifications Badges */}
       <QualityCertifications />
