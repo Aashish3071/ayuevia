@@ -7,7 +7,6 @@ import AboutSection from "@/components/AboutSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import PurificationProcess from "@/components/PurificationProcess";
 import ProductSection from "@/components/ProductSection";
-import OfficialLabelSection from "@/components/OfficialLabelSection";
 import QualitySection from "@/components/QualitySection";
 import BusinessSection from "@/components/BusinessSection";
 import DistributionSection from "@/components/DistributionSection";
@@ -72,9 +71,6 @@ export default function Home() {
 
       {/* Why Choose Us */}
       <WhyChooseUs />
-
-      {/* Official Bottle Label Slip Spotlight */}
-      <OfficialLabelSection />
 
       {/* Purification Process Timeline */}
       <PurificationProcess />
