@@ -32,15 +32,13 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Focused navigation links (removed Contact, Quality, Purification as requested)
   const navLinks = [
     { name: "About", href: "#about" },
     { name: "Why Us", href: "#why-choose-us" },
-    { name: "Purification", href: "#process" },
     { name: "Products", href: "#products" },
-    { name: "Quality", href: "#quality" },
     { name: "Who We Serve", href: "#business" },
     { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
   ];
 
   return (
@@ -67,7 +65,7 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
             <Logo variant="light" />
 
             {/* Desktop Navigation Links */}
-            <nav className="hidden xl:flex items-center gap-5 whitespace-nowrap">
+            <nav className="hidden lg:flex items-center gap-6 whitespace-nowrap">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
@@ -83,7 +81,7 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
             <div className="hidden lg:flex items-center gap-3 shrink-0 whitespace-nowrap">
               <a
                 href="tel:+919870170922"
-                className="hidden xl:flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:text-brand-blue transition-colors px-3 py-2 rounded-xl bg-slate-100/70 hover:bg-brand-sky/60 whitespace-nowrap"
+                className="flex items-center gap-1.5 text-xs font-bold text-slate-800 hover:text-brand-blue transition-colors px-3 py-2 rounded-xl bg-slate-100/70 hover:bg-brand-sky/60 whitespace-nowrap"
               >
                 <Phone className="w-3.5 h-3.5 text-brand-blue shrink-0" />
                 <span>+91 9870170922</span>
@@ -101,7 +99,7 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
             </div>
 
             {/* Mobile & Tablet Toggle Button */}
-            <div className="flex items-center gap-2 xl:hidden">
+            <div className="flex items-center gap-2 lg:hidden">
               <button
                 onClick={onOpenDistributorModal}
                 className="px-3 py-1.5 bg-gradient-to-r from-brand-blue to-brand-aqua text-white font-extrabold text-xs rounded-full shadow-sm"
@@ -122,7 +120,7 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
 
         {/* Mobile / Tablet Drawer Menu */}
         {mobileMenuOpen && (
-          <div className="xl:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top-4 duration-200">
+          <div className="lg:hidden bg-white/95 backdrop-blur-xl border-b border-slate-200 px-4 pt-3 pb-6 shadow-2xl animate-in slide-in-from-top-4 duration-200">
             <div className="flex flex-col space-y-2">
               {navLinks.map((link) => (
                 <a

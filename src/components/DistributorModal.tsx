@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import confetti from "canvas-confetti";
-import { X, Award, CheckCircle2, Send, AlertCircle, ShieldCheck, Phone, Building } from "lucide-react";
+import { X, Award, CheckCircle2, Send, AlertCircle, ShieldCheck } from "lucide-react";
 
 interface DistributorModalProps {
   isOpen: boolean;
@@ -62,26 +62,26 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-slate-950/60 backdrop-blur-md overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-950/70 backdrop-blur-md overflow-y-auto">
         
-        {/* Modal Container */}
+        {/* Modal Outer Card */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="bg-white rounded-3xl max-w-2xl w-full border border-brand-blue/20 shadow-2xl overflow-hidden relative my-8"
+          className="bg-white rounded-2xl sm:rounded-3xl max-w-2xl w-full border border-brand-blue/20 shadow-2xl overflow-hidden relative my-auto max-h-[92vh] flex flex-col"
         >
-          {/* Header Banner */}
-          <div className="p-6 bg-gradient-to-r from-slate-900 via-brand-darkblue to-slate-900 text-white flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-white/10 text-brand-aqua border border-white/20">
-                <Award className="w-6 h-6 text-brand-gold" />
+          {/* Sticky Header Banner */}
+          <div className="p-4 sm:p-6 bg-gradient-to-r from-slate-900 via-brand-darkblue to-slate-900 text-white flex items-center justify-between shrink-0">
+            <div className="flex items-center gap-2.5 sm:gap-3">
+              <div className="p-2 sm:p-2.5 rounded-xl bg-white/10 text-brand-aqua border border-white/20 shrink-0">
+                <Award className="w-5 h-5 sm:w-6 sm:h-6 text-brand-gold" />
               </div>
               <div>
-                <h3 className="font-display font-extrabold text-lg sm:text-xl text-white">
+                <h3 className="font-display font-extrabold text-base sm:text-xl text-white leading-tight">
                   ASA Beverages Dealership Application
                 </h3>
-                <p className="text-xs text-brand-aqua">
+                <p className="text-[11px] sm:text-xs text-brand-aqua mt-0.5">
                   Exclusive Territory Distribution Rights for Aquevia Water
                 </p>
               </div>
@@ -89,32 +89,33 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
 
             <button
               onClick={onClose}
-              className="p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+              className="p-2 rounded-full text-slate-300 hover:text-white hover:bg-white/10 transition-colors shrink-0 touch-manipulation"
+              aria-label="Close modal"
             >
-              <X className="w-5 h-5" />
+              <X className="w-5 h-5 sm:w-6 sm:h-6" />
             </button>
           </div>
 
-          {/* Modal Content */}
-          <div className="p-6 sm:p-8 space-y-6">
+          {/* Scrollable Modal Content Body */}
+          <div className="p-4 sm:p-8 space-y-5 overflow-y-auto flex-1">
             {success ? (
-              <div className="text-center py-8 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
-                  <CheckCircle2 className="w-10 h-10" />
+              <div className="text-center py-6 sm:py-8 space-y-4">
+                <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+                  <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
                 </div>
-                <h4 className="font-display font-extrabold text-2xl text-slate-900">
+                <h4 className="font-display font-extrabold text-xl sm:text-2xl text-slate-900">
                   Application Received!
                 </h4>
-                <p className="text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 max-w-md mx-auto leading-relaxed">
                   Thank you for applying to become an official distribution partner for <strong className="text-brand-blue">Aquevia Water by ASA Beverages</strong>. Our territory manager will review your city location and call you within 24 hours.
                 </p>
-                <div className="pt-4">
+                <div className="pt-3">
                   <button
                     onClick={() => {
                       setSuccess(false);
                       onClose();
                     }}
-                    className="px-8 py-3 bg-brand-blue text-white font-bold text-sm rounded-full shadow-md hover:bg-brand-darkblue transition-colors"
+                    className="w-full sm:w-auto px-8 py-3 bg-brand-blue text-white font-bold text-sm rounded-full shadow-md hover:bg-brand-darkblue transition-colors"
                   >
                     Done
                   </button>
@@ -124,12 +125,12 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
               <form onSubmit={handleSubmit} className="space-y-4">
                 {error && (
                   <div className="p-3 rounded-xl bg-rose-50 text-rose-800 text-xs font-semibold flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4 text-rose-600" />
+                    <AlertCircle className="w-4 h-4 text-rose-600 shrink-0" />
                     <span>{error}</span>
                   </div>
                 )}
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-700">Full Name *</label>
                     <input
@@ -138,7 +139,7 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
                       placeholder="Your Name"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-blue"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-base sm:text-sm focus:ring-2 focus:ring-brand-blue bg-white"
                     />
                   </div>
 
@@ -150,20 +151,20 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
                       placeholder="e.g. 9870170922"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-blue"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-base sm:text-sm focus:ring-2 focus:ring-brand-blue bg-white"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-700">Business / Firm Name</label>
                     <input
                       type="text"
-                      placeholder="e.g. Aqua Logistics & Traders"
+                      placeholder="e.g. Aqua Traders"
                       value={formData.businessName}
                       onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-blue"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-base sm:text-sm focus:ring-2 focus:ring-brand-blue bg-white"
                     />
                   </div>
 
@@ -172,21 +173,21 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Ghaziabad / Meerut / Noida"
+                      placeholder="e.g. Ghaziabad / Noida"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-blue"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-base sm:text-sm focus:ring-2 focus:ring-brand-blue bg-white"
                     />
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
                   <div className="space-y-1">
                     <label className="text-xs font-bold text-slate-700">Expected Monthly Volume</label>
                     <select
                       value={formData.expectedVolume}
                       onChange={(e) => setFormData({ ...formData, expectedVolume: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-blue bg-white"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-base sm:text-sm focus:ring-2 focus:ring-brand-blue bg-white"
                     >
                       <option value="500-1000 Cases/Month">500 - 1,000 Cases/Month</option>
                       <option value="1000-3000 Cases/Month">1,000 - 3,000 Cases/Month</option>
@@ -202,27 +203,27 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
                       placeholder="name@business.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-blue"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-base sm:text-sm focus:ring-2 focus:ring-brand-blue bg-white"
                     />
                   </div>
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-700">Storage / Transport Infrastructure Notes</label>
+                  <label className="text-xs font-bold text-slate-700">Infrastructure Notes (Optional)</label>
                   <textarea
                     rows={2}
-                    placeholder="Mention warehouse square footage, delivery vehicles available..."
+                    placeholder="Warehouse size, delivery vehicles available..."
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm focus:ring-2 focus:ring-brand-blue"
+                    className="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 text-base sm:text-sm focus:ring-2 focus:ring-brand-blue bg-white"
                   />
                 </div>
 
-                <div className="pt-3">
+                <div className="pt-2">
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 px-4 bg-gradient-to-r from-brand-blue to-brand-aqua text-white font-extrabold text-sm rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 px-4 bg-gradient-to-r from-brand-blue to-brand-aqua text-white font-extrabold text-sm rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 transition-all flex items-center justify-center gap-2 active:scale-98 touch-manipulation"
                   >
                     {loading ? (
                       <span>Verifying Application...</span>
