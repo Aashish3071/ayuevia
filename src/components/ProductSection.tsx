@@ -16,13 +16,13 @@ export default function ProductSection({ onSelectProductForInquiry }: ProductSec
     {
       id: "1l-hero",
       name: "Aquevia 1L Packaged Water",
-      capacity: "1L Bottle",
+      capacity: "1L Bottle (Primary Size)",
       category: "retail",
       isPrimary: true,
       image: "/images/aquevia_bottle_1l.jpg",
       tagline: "Our Flagship Daily Hydration Size",
       purification: "RO + UV + Ozonized + Minerals",
-      features: ["Food Grade PET Bottle", "Ergonomic Grip Design", "Tamper-Proof White Cap", "Balanced pH 7.2-7.5"],
+      features: ["Textured Ribbed PET Design", "Ergonomic Grip Body", "Tamper-Proof White Cap", "Balanced pH 7.2-7.5"],
       packaging: "Case of 12 Bottles",
     },
     {
@@ -39,14 +39,19 @@ export default function ProductSection({ onSelectProductForInquiry }: ProductSec
     },
     {
       id: "range-collection",
-      name: "Aquevia Complete Size Range",
-      capacity: "500ml, 1L, 2L",
+      name: "Aquevia Complete Size Lineup",
+      capacity: "200ml, 500ml, 1L, 2L",
       category: "range",
       isPrimary: false,
       image: "/images/aquevia_range.jpg",
       tagline: "Complete Portfolio For All Occasions",
       purification: "100% Certified Pure Drinking Water",
-      features: ["Convenient Travel 500ml", "Standard 1L Bottle", "Family 2L Pack", "Custom Bulk Branding"],
+      features: [
+        "200ml Pocket/Event Bottle",
+        "500ml Travel Handy Pack",
+        "1L Flagship Primary Bottle",
+        "2L Family Size Pack",
+      ],
       packaging: "Custom Shrink Wrapped Cases",
     },
   ];
@@ -73,16 +78,16 @@ export default function ProductSection({ onSelectProductForInquiry }: ProductSec
           </h2>
 
           <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-            Engineered in precision food-grade PET bottles with white hygienic caps, Aquevia provides pure, refreshing drinking water tailored for personal use, corporate offices, events, and commercial retail.
+            Engineered in precision ribbed food-grade PET bottles with hygienic white caps, Aquevia provides pure, refreshing drinking water available in <strong>200ml, 500ml, 1L (Primary), 2L, and 20L Jars</strong>.
           </p>
 
           {/* Filter Bar */}
           <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
             {[
               { id: "all", label: "All Products" },
-              { id: "retail", label: "Retail 1L Flagship" },
+              { id: "retail", label: "1L Flagship" },
               { id: "bulk", label: "20L Bulk Jars" },
-              { id: "range", label: "Full Lineup" },
+              { id: "range", label: "All Sizes (200ml, 500ml, 1L, 2L)" },
             ].map((f) => (
               <button
                 key={f.id}

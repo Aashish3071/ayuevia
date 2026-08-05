@@ -27,7 +27,7 @@ export default function FaqSection() {
     },
     {
       q: "Which bottle sizes are available in Aquevia water?",
-      a: "Our flagship primary bottle size is 1L. We also manufacture 500ml travel bottles, 2L family packs, and 20L heavy-duty dispenser jars for offices and homes.",
+      a: "Our flagship primary bottle size is 1L. We also manufacture 500ml travel bottles, 200ml pocket/event bottles, 2L family packs, and 20L heavy-duty dispenser jars for offices and homes.",
     },
   ];
 
