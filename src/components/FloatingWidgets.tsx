@@ -42,15 +42,15 @@ export default function FloatingWidgets() {
 
   return (
     <>
-      {/* Floating Right Action Stack (Desktop) */}
+      {/* Desktop Floating Right Action Stack (Hidden on Mobile to avoid duplicate WhatsApp buttons) */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col items-end gap-3">
         
-        {/* Official WhatsApp Floating Widget */}
+        {/* Official Desktop WhatsApp Floating Widget (Hidden on mobile) */}
         <a
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 ring-4 ring-[#25D366]/30"
+          className="hidden lg:flex group relative items-center justify-center w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white shadow-xl hover:scale-110 active:scale-95 transition-all duration-300 ring-4 ring-[#25D366]/30"
           aria-label="Chat on WhatsApp (+91-9870170922)"
         >
           <WhatsAppIcon className="w-7 h-7 text-white" />
@@ -63,7 +63,7 @@ export default function FloatingWidgets() {
         {showScrollTop && (
           <button
             onClick={scrollToTop}
-            className="w-12 h-12 rounded-full bg-brand-blue hover:bg-brand-darkblue text-white shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300"
+            className="w-10 h-10 lg:w-12 lg:h-12 rounded-full bg-brand-blue hover:bg-brand-darkblue text-white shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 mb-14 lg:mb-0"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-5 h-5" />
@@ -71,7 +71,7 @@ export default function FloatingWidgets() {
         )}
       </div>
 
-      {/* Mobile Bottom Bar (Call & WhatsApp Direct) */}
+      {/* Mobile Bottom Bar (Call & WhatsApp Direct Side-by-Side) */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 shadow-2xl flex items-center justify-around gap-2">
         <a
           href="tel:+919870170922"
