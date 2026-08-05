@@ -1,5 +1,8 @@
 import { NextResponse } from "next/server";
 
+const DEFAULT_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbzfxsZVnADhwQo23d6viDHZG9A1gCCjySFluk_LfPNzrB8Yce3U0B9fG9CG57KKo74/exec";
+
 export async function POST(request: Request) {
   try {
     const body = await request.json();
@@ -28,18 +31,16 @@ export async function POST(request: Request) {
 
     console.log("New Distributor Application Received:", application);
 
-    // Forward to Google Sheets Webhook if URL is configured
-    const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
-    if (webhookUrl) {
-      try {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(application),
-        });
-      } catch (err) {
-        console.error("Failed to post distributor application to Google Sheets Webhook:", err);
-      }
+    // Forward to Google Sheets Webhook
+    const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL || DEFAULT_WEBHOOK_URL;
+    try {
+      await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(application),
+      });
+    } catch (err) {
+      console.error("Failed to post distributor application to Google Sheets Webhook:", err);
     }
 
     return NextResponse.json({
