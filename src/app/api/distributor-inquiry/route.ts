@@ -13,6 +13,7 @@ export async function POST(request: Request) {
     }
 
     const application = {
+      type: "Distributor Application",
       id: "DIST-" + Math.floor(100000 + Math.random() * 900000),
       name,
       phone,
@@ -22,11 +23,24 @@ export async function POST(request: Request) {
       state: state || "Uttar Pradesh",
       expectedVolume: expectedVolume || "500-1000 Cases/Month",
       notes: notes || "",
-      timestamp: new Date().toISOString(),
-      status: "Under Territory Review",
+      timestamp: new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" }),
     };
 
     console.log("New Distributor Application Received:", application);
+
+    // Forward to Google Sheets Webhook if URL is configured
+    const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+    if (webhookUrl) {
+      try {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(application),
+        });
+      } catch (err) {
+        console.error("Failed to post distributor application to Google Sheets Webhook:", err);
+      }
+    }
 
     return NextResponse.json({
       success: true,
