@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
-const DEFAULT_WEBHOOK_URL =
-  "https://script.google.com/macros/s/AKfycbzfxsZVnADhwQo23d6viDHZG9A1gCCjySFluk_LfPNzrB8Yce3U0B9fG9CG57KKo74/exec";
+const DEFAULT_CONTACT_WEBHOOK_URL =
+  "https://script.google.com/macros/s/AKfycbztDqPJ7yBx-iH4x0ATbhmfxoh9iSNE1SQadCT0NRItdhcn5tpHKbhQzQk2xyuvrzcn/exec";
 
 export async function POST(request: Request) {
   try {
@@ -28,8 +28,12 @@ export async function POST(request: Request) {
 
     console.log("New Contact Inquiry Received:", submission);
 
-    // Forward to Google Sheets Webhook
-    const webhookUrl = process.env.GOOGLE_SHEETS_WEBHOOK_URL || DEFAULT_WEBHOOK_URL;
+    // Forward to Contact Form Google Sheet Webhook
+    const webhookUrl =
+      process.env.CONTACT_SHEETS_WEBHOOK_URL ||
+      process.env.GOOGLE_SHEETS_WEBHOOK_URL ||
+      DEFAULT_CONTACT_WEBHOOK_URL;
+
     try {
       await fetch(webhookUrl, {
         method: "POST",
@@ -37,7 +41,7 @@ export async function POST(request: Request) {
         body: JSON.stringify(submission),
       });
     } catch (err) {
-      console.error("Failed to post to Google Sheets Webhook:", err);
+      console.error("Failed to post Contact Inquiry to Google Sheets Webhook:", err);
     }
 
     return NextResponse.json({
