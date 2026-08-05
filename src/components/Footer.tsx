@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Phone, MapPin, Instagram, Facebook, Linkedin, Twitter, Award } from "lucide-react";
+import { Phone, MapPin, Award } from "lucide-react";
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -20,21 +20,6 @@ export default function Footer() {
             <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
               <strong className="text-white font-semibold">Pure By Nature. Safe By Choice.</strong> ASA Beverages delivers premium packaged drinking water purified using advanced 9-stage RO, UV, and Ozonization technology.
             </p>
-
-            <div className="flex items-center gap-3 pt-2">
-              <a href="#" className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:bg-brand-blue hover:text-white flex items-center justify-center text-slate-400 transition-colors">
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:bg-brand-blue hover:text-white flex items-center justify-center text-slate-400 transition-colors">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:bg-brand-blue hover:text-white flex items-center justify-center text-slate-400 transition-colors">
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-white/5 border border-white/10 hover:bg-brand-blue hover:text-white flex items-center justify-center text-slate-400 transition-colors">
-                <Twitter className="w-4 h-4" />
-              </a>
-            </div>
           </div>
 
           {/* Quick Navigation */}
