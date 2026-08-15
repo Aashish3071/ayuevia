@@ -1,31 +1,29 @@
-"use client";
+import type { Metadata } from "next";
+import ProductsClient from "./ProductsClient";
 
-import React, { useState } from "react";
-import Navbar from "@/components/Navbar";
-import ProductSection from "@/components/ProductSection";
-import Footer from "@/components/Footer";
-import FloatingWidgets from "@/components/FloatingWidgets";
-import DistributorModal from "@/components/DistributorModal";
-import ContactSection from "@/components/ContactSection";
+export const metadata: Metadata = {
+  title: "Aquevia Water Products | 1L, 500ml, 200ml, 2L & 20L Jars",
+  description:
+    "Explore the complete range of Aquevia Packaged Drinking Water by ASA Beverages: 1L Flagship bottles, 500ml travel packs, 200ml event bottles, 2L family packs & 20L dispenser jars.",
+  alternates: {
+    canonical: "https://aquevia.in/products",
+  },
+  openGraph: {
+    title: "Aquevia Packaged Drinking Water Collection | ASA Beverages",
+    description:
+      "Precision food-grade PET water bottles & 20L jars purified via 9-stage RO+UV+Ozone in Ghaziabad, UP.",
+    url: "https://aquevia.in/products",
+    images: [
+      {
+        url: "https://aquevia.in/images/aquevia_range.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Aquevia Packaged Drinking Water Range (200ml, 500ml, 1L, 2L)",
+      },
+    ],
+  },
+};
 
 export default function ProductsPage() {
-  const [distributorModalOpen, setDistributorModalOpen] = useState(false);
-  const [selectedReq, setSelectedReq] = useState("");
-
-  return (
-    <main className="min-h-screen bg-white text-slate-900 pt-20">
-      <Navbar onOpenDistributorModal={() => setDistributorModalOpen(true)} />
-      <div className="bg-brand-sky/50 py-12 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
-          <h1 className="font-display font-black text-4xl sm:text-5xl text-slate-900">Aquevia Water Collection</h1>
-          <p className="text-brand-blue font-bold text-sm">1L Primary Bottle, 500ml, 200ml, 2L Packs & 20L Dispenser Jars</p>
-        </div>
-      </div>
-      <ProductSection onSelectProductForInquiry={(req) => setSelectedReq(req)} />
-      <ContactSection initialRequirement={selectedReq} />
-      <Footer />
-      <FloatingWidgets />
-      <DistributorModal isOpen={distributorModalOpen} onClose={() => setDistributorModalOpen(false)} />
-    </main>
-  );
+  return <ProductsClient />;
 }

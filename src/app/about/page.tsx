@@ -1,30 +1,21 @@
-"use client";
+import type { Metadata } from "next";
+import AboutClient from "./AboutClient";
 
-import React, { useState } from "react";
-import Navbar from "@/components/Navbar";
-import AboutSection from "@/components/AboutSection";
-import QualitySection from "@/components/QualitySection";
-import Footer from "@/components/Footer";
-import FloatingWidgets from "@/components/FloatingWidgets";
-import DistributorModal from "@/components/DistributorModal";
+export const metadata: Metadata = {
+  title: "About Us | ASA Beverages - Aquevia Water Plant Ghaziabad",
+  description:
+    "Learn about ASA Beverages, the manufacturer of Aquevia Packaged Drinking Water based in Ghaziabad, UP. State-of-the-art 9-stage purification facility under FSSAI Lic. 22726696000236.",
+  alternates: {
+    canonical: "https://aquevia.in/about",
+  },
+  openGraph: {
+    title: "About ASA Beverages | Aquevia Drinking Water Manufacturer",
+    description:
+      "Discover ASA Beverages' vision for pure, safe, and mineral-balanced drinking water in Ghaziabad, Uttar Pradesh.",
+    url: "https://aquevia.in/about",
+  },
+};
 
 export default function AboutPage() {
-  const [distributorModalOpen, setDistributorModalOpen] = useState(false);
-
-  return (
-    <main className="min-h-screen bg-white text-slate-900 pt-20">
-      <Navbar onOpenDistributorModal={() => setDistributorModalOpen(true)} />
-      <div className="bg-brand-sky/50 py-12 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-2">
-          <h1 className="font-display font-black text-4xl sm:text-5xl text-slate-900">About ASA Beverages</h1>
-          <p className="text-brand-blue font-bold text-sm">Manufacturer of Aquevia Premium Packaged Water</p>
-        </div>
-      </div>
-      <AboutSection />
-      <QualitySection />
-      <Footer />
-      <FloatingWidgets />
-      <DistributorModal isOpen={distributorModalOpen} onClose={() => setDistributorModalOpen(false)} />
-    </main>
-  );
+  return <AboutClient />;
 }
