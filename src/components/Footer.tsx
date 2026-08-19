@@ -6,14 +6,14 @@ import Logo from "./Logo";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 text-white pt-14 pb-8">
+    <footer className="bg-slate-950 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 pb-10 border-b border-white/10">
           {/* Brand */}
           <div className="space-y-3">
             <Logo variant="dark" />
             <p className="text-sm text-slate-400 leading-relaxed">
-              ASA Beverages makes Aquevia — clean, safe packaged drinking water purified through a 9-stage RO, UV, and ozone process.
+              ASA Beverages makes Aquevia, clean and safe packaged drinking water purified through a 9-stage RO, UV, and ozone process.
             </p>
           </div>
 

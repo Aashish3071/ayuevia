@@ -10,7 +10,7 @@ export default function FaqSection() {
   const faqs = [
     {
       q: "Is Aquevia water RO purified?",
-      a: "Yes. Aquevia goes through a 9-stage process — including reverse osmosis, UV-C disinfection, and ozonization — to remove all impurities and pathogens.",
+      a: "Yes. Aquevia goes through a 9-stage process, including reverse osmosis, UV-C disinfection, and ozonization, to remove all impurities and pathogens.",
     },
     {
       q: "What is the pH level?",
@@ -26,19 +26,19 @@ export default function FaqSection() {
     },
     {
       q: "What bottle sizes are available?",
-      a: "200ml (events), 500ml (travel), 1L (daily use — our primary size), 2L (family), and 20L dispenser jars (offices and homes).",
+      a: "200ml (events), 500ml (travel), 1L (daily use, our primary size), 2L (family), and 20L dispenser jars (offices and homes).",
     },
   ];
 
   return (
-    <section id="faq" className="py-20 bg-white">
+    <section id="faq" className="py-16 sm:py-20 lg:py-24 bg-white">
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="mb-10">
+        <div className="mb-10 sm:mb-12">
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
             Common Questions
           </h2>
-          <p className="text-slate-600 mt-3">
+          <p className="text-sm sm:text-base text-slate-600 mt-3">
             Quick answers about Aquevia water, ordering, and distribution.
           </p>
         </div>

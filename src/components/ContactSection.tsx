@@ -58,23 +58,23 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
   };
 
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-2xl mb-10 sm:mb-12">
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
             Get in Touch
           </h2>
-          <p className="text-slate-600 mt-3">
+          <p className="text-sm sm:text-base text-slate-600 mt-3">
             Questions about supply, pricing, or distribution? Reach out to us.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
 
           {/* Left: Office Info */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-xl bg-slate-900 text-white space-y-5">
+            <div className="p-6 sm:p-7 rounded-xl bg-slate-900 text-white space-y-5 shadow-sm">
               <div>
                 <p className="text-xs font-medium text-slate-400 uppercase tracking-wide">Manufacturing & HQ</p>
                 <h3 className="font-bold text-xl text-white mt-1">ASA Beverages</h3>
@@ -84,7 +84,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
               <div className="space-y-3 text-sm text-slate-300">
                 <div className="flex items-start gap-3">
                   <MapPin className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
-                  <span>Ghaziabad, Uttar Pradesh, India</span>
+                  <span>Dist. Ghaziabad, Uttar Pradesh - 201002 (INDIA)</span>
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
@@ -99,7 +99,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
               <div className="grid grid-cols-2 gap-2 pt-1">
                 <a
                   href="tel:+919870170922"
-                  className="py-2.5 rounded-lg bg-brand-blue hover:bg-brand-darkblue text-white font-semibold text-xs text-center transition-colors"
+                  className="py-2.5 rounded-lg bg-brand-blue hover:bg-brand-darkblue text-white font-semibold text-xs text-center transition-colors shadow-sm"
                 >
                   Call Now
                 </a>
@@ -107,7 +107,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
                   href="https://wa.me/919870170922?text=Hello%20ASA%20Beverages%2C%20I%20am%20interested%20in%20Aquevia%20water%20supply"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center transition-colors"
+                  className="py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center transition-colors shadow-sm"
                 >
                   WhatsApp
                 </a>
@@ -115,7 +115,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
             </div>
 
             {/* Map */}
-            <div className="rounded-xl overflow-hidden border border-slate-200 h-56">
+            <div className="rounded-xl overflow-hidden border border-slate-200 h-52 sm:h-60 shadow-sm">
               <iframe
                 title="ASA Beverages Ghaziabad Location"
                 src="https://maps.google.com/maps?q=Ghaziabad,%20Uttar%20Pradesh,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -131,7 +131,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
 
           {/* Right: Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-xl bg-slate-50 border border-slate-200 space-y-5">
+            <div className="p-6 sm:p-8 rounded-xl bg-white border border-slate-200 space-y-5 shadow-sm">
               <div>
                 <h3 className="font-bold text-xl text-slate-900">Send a Supply Inquiry</h3>
                 <p className="text-sm text-slate-500 mt-1">Fill in your details for price quotes, samples, or delivery schedules.</p>
@@ -160,7 +160,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
                       placeholder="Rajesh Kumar"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
+                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-base sm:text-sm"
                     />
                   </div>
                   <div>
@@ -171,7 +171,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
                       placeholder="9870170922"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
+                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-base sm:text-sm"
                     />
                   </div>
                 </div>
@@ -183,7 +183,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
                       placeholder="Grand Hotel / Retail Store"
                       value={formData.businessName}
                       onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
+                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-base sm:text-sm"
                     />
                   </div>
                   <div>
@@ -194,7 +194,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
                       placeholder="Ghaziabad / Noida / Delhi"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
+                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-base sm:text-sm"
                     />
                   </div>
                 </div>
@@ -205,13 +205,13 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
                     placeholder="Bottle sizes needed, estimated quantity, or dealership inquiry..."
                     value={formData.requirement}
                     onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
+                    className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-base sm:text-sm"
                   />
                 </div>
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 bg-brand-blue hover:bg-brand-darkblue text-white font-semibold text-sm rounded-lg disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-brand-blue hover:bg-brand-darkblue text-white font-semibold text-sm rounded-lg disabled:opacity-50 transition-colors flex items-center justify-center gap-2 shadow-sm"
                 >
                   {loading ? "Submitting..." : (<><Send className="w-4 h-4" /> Submit Inquiry</>)}
                 </button>

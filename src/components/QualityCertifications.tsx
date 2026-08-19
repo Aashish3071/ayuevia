@@ -12,13 +12,13 @@ export default function QualityCertifications() {
   ];
 
   return (
-    <section className="py-12 bg-white border-y border-slate-100">
+    <section className="py-12 sm:py-16 bg-slate-50 border-y border-slate-200/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
           {certs.map((c) => {
             const Icon = c.icon;
             return (
-              <div key={c.title} className="flex items-center gap-3 p-4 rounded-lg bg-slate-50 border border-slate-100">
+              <div key={c.title} className="flex items-center gap-3 p-3.5 sm:p-4 rounded-lg bg-white border border-slate-200 shadow-sm">
                 <Icon className="w-6 h-6 text-brand-blue shrink-0" />
                 <div>
                   <p className="font-semibold text-slate-900 text-sm">{c.title}</p>

@@ -14,7 +14,7 @@ export default function ProductSection({ onSelectProductForInquiry }: ProductSec
     {
       id: "1l-hero",
       name: "Aquevia 1L",
-      capacity: "1 Litre — Primary Size",
+      capacity: "1 Litre (Primary Size)",
       image: "/images/aquevia_bottle_1l.jpg",
       tagline: "Our everyday bottle.",
       features: ["Textured ribbed PET body", "Ergonomic grip", "Tamper-proof white cap", "Balanced pH 7.2-7.5"],
@@ -23,7 +23,7 @@ export default function ProductSection({ onSelectProductForInquiry }: ProductSec
     {
       id: "20l-jar",
       name: "Aquevia 20L Jar",
-      capacity: "20 Litre — Dispenser",
+      capacity: "20 Litre Dispenser",
       image: "/images/aquevia_jar_20l.jpg",
       tagline: "For offices and homes.",
       features: ["BPA-free heavy PET", "Spill-proof cap", "Side handle", "Reusable & recyclable"],
@@ -35,20 +35,20 @@ export default function ProductSection({ onSelectProductForInquiry }: ProductSec
       capacity: "200ml · 500ml · 1L · 2L",
       image: "/images/aquevia_range.jpg",
       tagline: "A size for every occasion.",
-      features: ["200ml — events & travel", "500ml — handy pack", "1L — daily use", "2L — family pack"],
+      features: ["200ml: events & travel", "500ml: handy pack", "1L: daily use", "2L: family pack"],
       packaging: "Shrink-wrapped cases",
     },
   ];
 
   return (
-    <section id="products" className="py-20 bg-slate-50">
+    <section id="products" className="py-16 sm:py-20 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-2xl mb-10 sm:mb-12">
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
             Our Products
           </h2>
-          <p className="text-slate-600 mt-3">
+          <p className="text-sm sm:text-base text-slate-600 mt-3">
             Packaged in food-grade ribbed PET bottles. Available in 200ml, 500ml, 1L, 2L, and 20L jars.
           </p>
         </div>

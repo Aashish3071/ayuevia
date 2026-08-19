@@ -28,7 +28,7 @@ body {
   border: 1px solid rgba(0, 134, 255, 0.08);
 }
 
-/* Water Gradient Text — used sparingly */
+/* Water Gradient Text: used sparingly */
 .text-gradient-water {
   background: linear-gradient(135deg, #0086FF 0%, #25D0FF 100%);
   -webkit-background-clip: text;

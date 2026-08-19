@@ -24,7 +24,7 @@ export default function BusinessSection({ onOpenInquiry }: BusinessSectionProps)
   ];
 
   return (
-    <section id="business" className="py-20 bg-slate-50">
+    <section id="business" className="py-16 sm:py-20 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <motion.div
@@ -32,17 +32,17 @@ export default function BusinessSection({ onOpenInquiry }: BusinessSectionProps)
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="max-w-2xl mb-10"
+          className="max-w-2xl mb-10 sm:mb-12"
         >
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
             Who We Serve
           </h2>
-          <p className="text-slate-600 mt-3">
+          <p className="text-sm sm:text-base text-slate-600 mt-3">
             We supply Aquevia water to businesses and institutions across northern India.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
           {segments.map((seg) => {
             const Icon = seg.icon;
             return (

@@ -12,7 +12,7 @@ interface HeroProps {
 
 export default function Hero({ onOpenDistributorModal }: HeroProps) {
   return (
-    <section id="hero" className="relative min-h-screen pt-24 pb-16 flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24 flex items-center overflow-hidden">
       {/* Water Canvas */}
       <WaterRippleCanvas />
 
@@ -20,7 +20,7 @@ export default function Hero({ onOpenDistributorModal }: HeroProps) {
       <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-aqua/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
 
           {/* Left: Text */}
           <motion.div
@@ -29,23 +29,23 @@ export default function Hero({ onOpenDistributorModal }: HeroProps) {
             transition={{ duration: 0.7 }}
             className="space-y-5 text-center lg:text-left"
           >
-            <h1 className="font-display font-black text-4xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-[1.1]">
+            <h1 className="font-display font-black text-3xl sm:text-5xl lg:text-6xl text-slate-900 tracking-tight leading-[1.1]">
               Pure Water.<br />
               <span className="text-brand-blue">Pure Trust.</span>
             </h1>
 
-            <p className="text-lg font-semibold text-brand-gold">
+            <p className="text-base sm:text-lg font-semibold text-brand-gold">
               Pure By Nature. Safe By Choice.
             </p>
 
-            <p className="text-base text-slate-600 max-w-lg mx-auto lg:mx-0">
-              Aquevia by ASA Beverages — packaged drinking water purified through RO, UV, and ozone treatment. Available in 200ml, 500ml, 1L, 2L, and 20L jars.
+            <p className="text-sm sm:text-base text-slate-600 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              Aquevia by ASA Beverages provides packaged drinking water purified through RO, UV, and ozone treatment. Available in 200ml, 500ml, 1L, 2L, and 20L jars.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 pt-2">
               <button
                 onClick={onOpenDistributorModal}
-                className="w-full sm:w-auto px-7 py-3.5 bg-brand-blue text-white font-bold text-sm rounded-lg hover:bg-brand-darkblue transition-colors flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 sm:px-7 py-3.5 bg-brand-blue text-white font-bold text-sm rounded-lg hover:bg-brand-darkblue transition-colors flex items-center justify-center gap-2 shadow-sm"
               >
                 Get Distribution Dealership
                 <ArrowRight className="w-4 h-4" />
@@ -53,7 +53,7 @@ export default function Hero({ onOpenDistributorModal }: HeroProps) {
 
               <a
                 href="#contact"
-                className="w-full sm:w-auto px-7 py-3.5 bg-white text-slate-800 font-semibold text-sm rounded-lg border border-slate-200 hover:border-brand-blue/30 transition-colors text-center"
+                className="w-full sm:w-auto px-6 sm:px-7 py-3.5 bg-white text-slate-800 font-semibold text-sm rounded-lg border border-slate-200 hover:border-brand-blue/30 transition-colors text-center shadow-sm"
               >
                 Contact Us
               </a>

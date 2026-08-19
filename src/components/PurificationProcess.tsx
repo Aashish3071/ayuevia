@@ -28,7 +28,7 @@ export default function PurificationProcess() {
     {
       id: 4, name: "UV Treatment", icon: Sun,
       tech: "UV-C Light",
-      detail: "UV-C light deactivates all micro-organisms, bacteria, viruses, and cysts — no chemicals added.",
+      detail: "UV-C light deactivates all micro-organisms, bacteria, viruses, and cysts without adding any chemicals.",
     },
     {
       id: 5, name: "Ozonization", icon: Zap,
@@ -58,16 +58,16 @@ export default function PurificationProcess() {
   ];
 
   return (
-    <section id="process" className="py-20 bg-white">
+    <section id="process" className="py-16 sm:py-20 lg:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="max-w-2xl mb-12">
+        <div className="max-w-2xl mb-10 sm:mb-12">
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
             9-Stage Purification
           </h2>
-          <p className="text-slate-600 mt-3">
-            From aquifer intake to sealed bottle — here's how we make every drop safe.
+          <p className="text-sm sm:text-base text-slate-600 mt-3">
+            From aquifer intake to sealed bottle, here is how we make every drop safe.
           </p>
         </div>
 

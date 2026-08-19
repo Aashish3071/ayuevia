@@ -6,9 +6,9 @@ import { ShieldCheck, Award, Factory } from "lucide-react";
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-16 sm:py-20 lg:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
 
           {/* Left: Story */}
           <motion.div
@@ -22,25 +22,25 @@ export default function AboutSection() {
               About ASA Beverages
             </h2>
 
-            <div className="space-y-4 text-slate-600 leading-relaxed">
+            <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed">
               <p>
-                ASA Beverages makes <strong className="text-slate-900">Aquevia</strong> — clean, safe packaged drinking water. Our plant in Ghaziabad uses a 9-stage purification process (RO, UV sterilization, and ozone treatment) to make sure every bottle meets strict safety standards.
+                ASA Beverages makes <strong className="text-slate-900">Aquevia</strong>, delivering clean, safe packaged drinking water. Our plant in Ghaziabad uses a 9-stage purification process (RO, UV sterilization, and ozone treatment) to make sure every bottle meets strict safety standards.
               </p>
               <p>
                 We supply water to retail shops, distributors, offices, schools, hospitals, hotels, and households across northern India. Every batch goes through lab testing before it leaves our facility.
               </p>
             </div>
 
-            {/* Key points — simple inline */}
+            {/* Key points: simple inline */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-              <div className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
+              <div className="flex items-start gap-3 p-3.5 rounded-lg bg-slate-50 border border-slate-100">
                 <ShieldCheck className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-slate-900 text-sm">Touchless Bottling</p>
                   <p className="text-xs text-slate-500">Automated filling in sterile cleanroom.</p>
                 </div>
               </div>
-              <div className="flex items-start gap-3 p-3 rounded-lg bg-slate-50 border border-slate-100">
+              <div className="flex items-start gap-3 p-3.5 rounded-lg bg-slate-50 border border-slate-100">
                 <Award className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
                 <div>
                   <p className="font-semibold text-slate-900 text-sm">FSSAI Certified</p>
@@ -59,7 +59,7 @@ export default function AboutSection() {
             className="space-y-5"
           >
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4">
               {[
                 { value: "9+", label: "Purification Stages", sub: "RO, UV & Ozone" },
                 { value: "50+", label: "Quality Checks", sub: "Per batch" },
