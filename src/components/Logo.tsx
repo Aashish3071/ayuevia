@@ -15,7 +15,7 @@ export default function Logo({ variant = "light", showSubtext = true, className 
   return (
     <Link href="/" className={`inline-flex items-center gap-3 group shrink-0 ${className}`}>
       {/* Official ASA Golden 'A' Emblem SVG */}
-      <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-brand-gold/40 p-1.5 shadow-md group-hover:scale-105 group-hover:border-brand-gold transition-all duration-300 flex items-center justify-center">
+      <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 border border-brand-gold/40 p-1.5 shadow-md flex items-center justify-center">
         <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-sm">
           <defs>
             {/* Gold Gradient */}
@@ -60,7 +60,7 @@ export default function Logo({ variant = "light", showSubtext = true, className 
               isDarkBg ? "text-white" : "text-slate-900"
             }`}
           >
-            ASA <span className="text-gradient-gold">BEVERAGES</span>
+            ASA <span className="text-brand-gold">BEVERAGES</span>
           </span>
         </div>
 

@@ -2,8 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import confetti from "canvas-confetti";
-import { X, Award, CheckCircle2, Send, AlertCircle, ShieldCheck } from "lucide-react";
+import { X, Award, CheckCircle2, Send, AlertCircle } from "lucide-react";
 
 interface DistributorModalProps {
   isOpen: boolean;
@@ -44,12 +43,6 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
 
       if (res.ok) {
         setSuccess(true);
-        confetti({
-          particleCount: 100,
-          spread: 80,
-          origin: { y: 0.5 },
-          colors: ["#0086FF", "#25D0FF", "#D8B15A"],
-        });
       } else {
         setError(data.error || "Application submission failed.");
       }
@@ -115,7 +108,7 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
                       setSuccess(false);
                       onClose();
                     }}
-                    className="w-full sm:w-auto px-8 py-3 bg-brand-blue text-white font-bold text-sm rounded-full shadow-md hover:bg-brand-darkblue transition-colors"
+                    className="w-full sm:w-auto px-8 py-3 bg-brand-blue text-white font-bold text-sm rounded-lg hover:bg-brand-darkblue transition-colors"
                   >
                     Done
                   </button>
@@ -223,7 +216,7 @@ export default function DistributorModal({ isOpen, onClose }: DistributorModalPr
                   <button
                     type="submit"
                     disabled={loading}
-                    className="w-full py-3.5 px-4 bg-gradient-to-r from-brand-blue to-brand-aqua text-white font-extrabold text-sm rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 transition-all flex items-center justify-center gap-2 active:scale-98 touch-manipulation"
+                    className="w-full py-3.5 px-4 bg-brand-blue hover:bg-brand-darkblue text-white font-bold text-sm rounded-lg disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
                   >
                     {loading ? (
                       <span>Verifying Application...</span>

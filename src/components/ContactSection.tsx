@@ -1,19 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
-import confetti from "canvas-confetti";
 import {
-  MapPin,
-  Phone,
-  MessageSquare,
-  Send,
-  Building,
-  CheckCircle2,
-  AlertCircle,
-  Clock,
-  Mail,
-  Sparkles,
+  MapPin, Phone, MessageSquare, Send,
+  CheckCircle2, AlertCircle, Clock,
 } from "lucide-react";
 
 interface ContactSectionProps {
@@ -50,12 +40,6 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
 
       if (res.ok) {
         setSuccessMessage(data.message);
-        confetti({
-          particleCount: 80,
-          spread: 70,
-          origin: { y: 0.6 },
-          colors: ["#0086FF", "#25D0FF", "#D8B15A"],
-        });
         setFormData({
           name: "",
           phone: "",
@@ -66,107 +50,72 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
       } else {
         setErrorMessage(data.error || "Failed to send message.");
       }
-    } catch (err) {
-      setErrorMessage("Something went wrong. Please check your network connection.");
+    } catch {
+      setErrorMessage("Something went wrong. Please check your connection.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <section id="contact" className="py-24 bg-white relative overflow-hidden">
-      {/* Soft Background Radial */}
-      <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-brand-sky/60 rounded-full blur-3xl pointer-events-none" />
+    <section id="contact" className="py-20 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-sky text-brand-blue font-bold text-xs uppercase tracking-wider">
-            <Mail className="w-4 h-4 text-brand-gold" />
-            Get In Touch
-          </div>
-
-          <h2 className="font-display font-black text-3xl sm:text-5xl text-slate-900 tracking-tight">
-            Contact <span className="text-gradient-water">ASA Beverages</span>
+        <div className="max-w-2xl mb-12">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
+            Get in Touch
           </h2>
-
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-            Have questions about Aquevia water supply, corporate bulk orders, or retail dealership? Reach out to our Ghaziabad office today.
+          <p className="text-slate-600 mt-3">
+            Questions about supply, pricing, or distribution? Reach out to us.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          
-          {/* Left Column: Office Info & Quick Actions */}
-          <div className="lg:col-span-5 space-y-8">
-            
-            {/* Plant & Company Card */}
-            <div className="p-8 rounded-3xl bg-gradient-to-br from-slate-900 via-brand-darkblue to-slate-900 text-white shadow-xl space-y-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+
+          {/* Left: Office Info */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="p-6 rounded-xl bg-slate-900 text-white space-y-5">
               <div>
-                <span className="text-xs font-bold text-brand-gold uppercase tracking-widest">
-                  Manufacturing Facility & HQ
-                </span>
-                <h3 className="font-display font-extrabold text-2xl text-white mt-1">
-                  ASA Beverages
-                </h3>
-                <p className="text-xs text-brand-aqua mt-0.5">
-                  Mfr. of Aquevia Packaged Drinking Water
-                </p>
+                <p className="text-xs font-medium text-slate-400 uppercase tracking-wide">Manufacturing & HQ</p>
+                <h3 className="font-bold text-xl text-white mt-1">ASA Beverages</h3>
+                <p className="text-xs text-slate-400 mt-0.5">Manufacturer of Aquevia Packaged Drinking Water</p>
               </div>
 
-              <div className="space-y-4 text-sm text-slate-300">
+              <div className="space-y-3 text-sm text-slate-300">
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-brand-aqua shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold text-white block">Plant Location</span>
-                    <span>Ghaziabad, Uttar Pradesh, India</span>
-                  </div>
+                  <MapPin className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+                  <span>Ghaziabad, Uttar Pradesh, India</span>
                 </div>
-
                 <div className="flex items-start gap-3">
-                  <Phone className="w-5 h-5 text-brand-gold shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold text-white block">Direct Phone / Hotline</span>
-                    <a href="tel:+919870170922" className="text-brand-aqua hover:underline font-semibold">
-                      +91 9870170922
-                    </a>
-                  </div>
+                  <Phone className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+                  <a href="tel:+919870170922" className="text-white hover:underline font-medium">+91 9870170922</a>
                 </div>
-
                 <div className="flex items-start gap-3">
-                  <Clock className="w-5 h-5 text-brand-aqua shrink-0 mt-0.5" />
-                  <div>
-                    <span className="font-bold text-white block">Operational Hours</span>
-                    <span>Monday - Saturday: 8:00 AM - 8:00 PM</span>
-                  </div>
+                  <Clock className="w-4 h-4 text-slate-500 shrink-0 mt-0.5" />
+                  <span>Mon - Sat: 8:00 AM - 8:00 PM</span>
                 </div>
               </div>
 
-              {/* Instant Call & WhatsApp Buttons */}
-              <div className="pt-2 grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2 pt-1">
                 <a
                   href="tel:+919870170922"
-                  className="py-3 px-4 rounded-xl bg-brand-blue hover:bg-brand-darkblue text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-colors"
+                  className="py-2.5 rounded-lg bg-brand-blue hover:bg-brand-darkblue text-white font-semibold text-xs text-center transition-colors"
                 >
-                  <Phone className="w-4 h-4" />
-                  <span>Call Now</span>
+                  Call Now
                 </a>
-
                 <a
                   href="https://wa.me/919870170922?text=Hello%20ASA%20Beverages%2C%20I%20am%20interested%20in%20Aquevia%20water%20supply"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="py-3 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-colors"
+                  className="py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-xs text-center transition-colors"
                 >
-                  <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp</span>
+                  WhatsApp
                 </a>
               </div>
             </div>
 
-            {/* Google Map Interactive Placeholder */}
-            <div className="rounded-3xl overflow-hidden border border-slate-200 shadow-md h-64 relative bg-slate-100 flex items-center justify-center">
+            {/* Map */}
+            <div className="rounded-xl overflow-hidden border border-slate-200 h-56">
               <iframe
                 title="ASA Beverages Ghaziabad Location"
                 src="https://maps.google.com/maps?q=Ghaziabad,%20Uttar%20Pradesh,%20India&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -176,125 +125,95 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="w-full h-full"
               />
-              <div className="absolute top-3 left-3 bg-white/90 backdrop-blur-md px-3 py-1.5 rounded-full shadow-md text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
-                <MapPin className="w-3.5 h-3.5 text-brand-blue" />
-                Ghaziabad Industrial Belt, UP
-              </div>
             </div>
-
           </div>
 
-          {/* Right Column: Contact Inquiry Form */}
+          {/* Right: Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card p-8 sm:p-10 rounded-3xl border border-brand-blue/20 shadow-xl space-y-6">
+            <div className="p-6 sm:p-8 rounded-xl bg-slate-50 border border-slate-200 space-y-5">
               <div>
-                <h3 className="font-display font-extrabold text-2xl text-slate-900">
-                  Send Supply Inquiry
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-500 mt-1">
-                  Fill in your details below to request price quotes, sample bottles, or delivery schedules.
-                </p>
+                <h3 className="font-bold text-xl text-slate-900">Send a Supply Inquiry</h3>
+                <p className="text-sm text-slate-500 mt-1">Fill in your details for price quotes, samples, or delivery schedules.</p>
               </div>
 
-              {/* Alert Feedback Messages */}
               {successMessage && (
-                <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-semibold flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <div>{successMessage}</div>
+                <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                  {successMessage}
                 </div>
               )}
-
               {errorMessage && (
-                <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-800 text-xs font-semibold flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-rose-600 shrink-0 mt-0.5" />
-                  <div>{errorMessage}</div>
+                <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-800 text-sm flex items-start gap-2">
+                  <AlertCircle className="w-4 h-4 shrink-0 mt-0.5" />
+                  {errorMessage}
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Name */}
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-700">Full Name *</label>
+                  <div>
+                    <label className="text-xs font-medium text-slate-700 block mb-1">Full Name *</label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Rajesh Kumar"
+                      placeholder="Rajesh Kumar"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-slate-800"
+                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
                     />
                   </div>
-
-                  {/* Phone */}
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-700">Phone Number *</label>
+                  <div>
+                    <label className="text-xs font-medium text-slate-700 block mb-1">Phone *</label>
                     <input
                       type="tel"
                       required
-                      placeholder="e.g. 9870170922"
+                      placeholder="9870170922"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-slate-800"
+                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
                     />
                   </div>
                 </div>
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Business Name */}
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-700">Business / Store Name</label>
+                  <div>
+                    <label className="text-xs font-medium text-slate-700 block mb-1">Business Name</label>
                     <input
                       type="text"
-                      placeholder="e.g. Grand Hotel / Retail Store"
+                      placeholder="Grand Hotel / Retail Store"
                       value={formData.businessName}
                       onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-slate-800"
+                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
                     />
                   </div>
-
-                  {/* City */}
-                  <div className="space-y-1">
-                    <label className="text-xs font-bold text-slate-700">City / Location *</label>
+                  <div>
+                    <label className="text-xs font-medium text-slate-700 block mb-1">City *</label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Ghaziabad / Noida / Delhi"
+                      placeholder="Ghaziabad / Noida / Delhi"
                       value={formData.city}
                       onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-slate-800"
+                      className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
                     />
                   </div>
                 </div>
-
-                {/* Requirement */}
-                <div className="space-y-1">
-                  <label className="text-xs font-bold text-slate-700">Requirement Details</label>
+                <div>
+                  <label className="text-xs font-medium text-slate-700 block mb-1">Requirement</label>
                   <textarea
-                    rows={4}
-                    placeholder="Specify bottle sizes needed (1L, 20L Jar, 500ml), estimated weekly quantity, or dealership inquiry..."
+                    rows={3}
+                    placeholder="Bottle sizes needed, estimated quantity, or dealership inquiry..."
                     value={formData.requirement}
                     onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm text-slate-800"
+                    className="w-full px-3 py-2.5 rounded-lg bg-white border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue text-sm"
                   />
                 </div>
-
-                {/* Submit Button */}
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-4 px-6 bg-gradient-to-r from-brand-blue to-brand-aqua hover:from-brand-darkblue hover:to-brand-blue text-white font-extrabold text-sm rounded-xl shadow-md hover:shadow-lg disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3 bg-brand-blue hover:bg-brand-darkblue text-white font-semibold text-sm rounded-lg disabled:opacity-50 transition-colors flex items-center justify-center gap-2"
                 >
-                  {loading ? (
-                    <span>Submitting Inquiry...</span>
-                  ) : (
-                    <>
-                      <Send className="w-4 h-4" />
-                      <span>Submit Supply Inquiry</span>
-                    </>
-                  )}
+                  {loading ? "Submitting..." : (<><Send className="w-4 h-4" /> Submit Inquiry</>)}
                 </button>
               </form>
             </div>

@@ -1,189 +1,107 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Droplet, CheckCircle2, ShieldCheck, Sparkles, ArrowRight, Award } from "lucide-react";
+import { CheckCircle2, ArrowRight } from "lucide-react";
 
 interface ProductSectionProps {
   onSelectProductForInquiry: (productName: string) => void;
 }
 
 export default function ProductSection({ onSelectProductForInquiry }: ProductSectionProps) {
-  const [activeFilter, setActiveFilter] = useState("all");
-
   const products = [
     {
       id: "1l-hero",
-      name: "Aquevia 1L Packaged Water",
-      capacity: "1L Bottle (Primary Size)",
-      category: "retail",
-      isPrimary: true,
+      name: "Aquevia 1L",
+      capacity: "1 Litre — Primary Size",
       image: "/images/aquevia_bottle_1l.jpg",
-      tagline: "Our Flagship Daily Hydration Size",
-      purification: "RO + UV + Ozonized + Minerals",
-      features: ["Textured Ribbed PET Design", "Ergonomic Grip Body", "Tamper-Proof White Cap", "Balanced pH 7.2-7.5"],
-      packaging: "Case of 12 Bottles",
+      tagline: "Our everyday bottle.",
+      features: ["Textured ribbed PET body", "Ergonomic grip", "Tamper-proof white cap", "Balanced pH 7.2-7.5"],
+      packaging: "Case of 12",
     },
     {
       id: "20l-jar",
-      name: "Aquevia 20L Dispenser Jar",
-      capacity: "20L Heavy Duty Jar",
-      category: "bulk",
-      isPrimary: false,
+      name: "Aquevia 20L Jar",
+      capacity: "20 Litre — Dispenser",
       image: "/images/aquevia_jar_20l.jpg",
-      tagline: "High Capacity Office & Home Hydration",
-      purification: "Multi-stage RO + Ozonized Hygiene",
-      features: ["BPA-Free Heavy PET", "Spill-Proof White Cap", "Integrated Side Handle", "Multi-Use Recyclable"],
-      packaging: "Individual Sealed Unit",
+      tagline: "For offices and homes.",
+      features: ["BPA-free heavy PET", "Spill-proof cap", "Side handle", "Reusable & recyclable"],
+      packaging: "Individual unit",
     },
     {
-      id: "range-collection",
-      name: "Aquevia Complete Size Lineup",
-      capacity: "200ml, 500ml, 1L, 2L",
-      category: "range",
-      isPrimary: false,
+      id: "range",
+      name: "Full Range",
+      capacity: "200ml · 500ml · 1L · 2L",
       image: "/images/aquevia_range.jpg",
-      tagline: "Complete Portfolio For All Occasions",
-      purification: "100% Certified Pure Drinking Water",
-      features: [
-        "200ml Pocket/Event Bottle",
-        "500ml Travel Handy Pack",
-        "1L Flagship Primary Bottle",
-        "2L Family Size Pack",
-      ],
-      packaging: "Custom Shrink Wrapped Cases",
+      tagline: "A size for every occasion.",
+      features: ["200ml — events & travel", "500ml — handy pack", "1L — daily use", "2L — family pack"],
+      packaging: "Shrink-wrapped cases",
     },
   ];
 
-  const filteredProducts =
-    activeFilter === "all" ? products : products.filter((p) => p.category === activeFilter);
-
   return (
-    <section id="products" className="py-24 bg-gradient-to-b from-white via-brand-ice to-white relative overflow-hidden">
-      {/* Decorative Gradient Background */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-brand-aqua/10 rounded-full blur-3xl pointer-events-none" />
+    <section id="products" className="py-20 bg-slate-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-sky text-brand-blue font-bold text-xs uppercase tracking-wider">
-            <Award className="w-4 h-4 text-brand-gold" />
-            Premium Bottled Range
-          </div>
-
-          <h2 className="font-display font-black text-3xl sm:text-5xl text-slate-900 tracking-tight">
-            Our Product <span className="text-gradient-water">Collection</span>
+        <div className="max-w-2xl mb-12">
+          <h2 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-900">
+            Our Products
           </h2>
-
-          <p className="text-slate-600 text-base sm:text-lg leading-relaxed">
-            Engineered in precision ribbed food-grade PET bottles with hygienic white caps, Aquevia provides pure, refreshing drinking water available in <strong>200ml, 500ml, 1L (Primary), 2L, and 20L Jars</strong>.
+          <p className="text-slate-600 mt-3">
+            Packaged in food-grade ribbed PET bottles. Available in 200ml, 500ml, 1L, 2L, and 20L jars.
           </p>
-
-          {/* Filter Bar */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-4">
-            {[
-              { id: "all", label: "All Products" },
-              { id: "retail", label: "1L Flagship" },
-              { id: "bulk", label: "20L Bulk Jars" },
-              { id: "range", label: "All Sizes (200ml, 500ml, 1L, 2L)" },
-            ].map((f) => (
-              <button
-                key={f.id}
-                onClick={() => setActiveFilter(f.id)}
-                className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
-                  activeFilter === f.id
-                    ? "bg-brand-blue text-white shadow-md"
-                    : "bg-white text-slate-700 hover:bg-brand-sky border border-slate-200"
-                }`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* Product Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProducts.map((product) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {products.map((product) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className={`glass-card glass-card-hover rounded-3xl overflow-hidden flex flex-col justify-between border relative ${
-                product.isPrimary ? "ring-2 ring-brand-blue border-brand-blue/30 shadow-xl" : "border-slate-200"
-              }`}
+              transition={{ duration: 0.5 }}
+              className="bg-white rounded-xl border border-slate-200 overflow-hidden flex flex-col"
             >
-              {/* Flagship Ribbon */}
-              {product.isPrimary && (
-                <div className="absolute top-4 right-4 z-20 px-3 py-1 bg-gradient-to-r from-brand-gold to-yellow-500 text-white font-extrabold text-[10px] uppercase tracking-wider rounded-full shadow-md flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" />
-                  Primary Bottle Size
-                </div>
-              )}
-
-              {/* Product Image Stage */}
-              <div className="relative h-72 bg-gradient-to-b from-brand-sky/60 to-white flex items-center justify-center p-6 overflow-hidden">
+              {/* Image */}
+              <div className="h-64 bg-slate-50 flex items-center justify-center p-6">
                 <Image
                   src={product.image}
                   alt={product.name}
                   width={500}
                   height={500}
-                  className="max-h-64 w-auto object-contain hover:scale-105 transition-transform duration-500"
+                  className="max-h-56 w-auto object-contain"
                 />
               </div>
 
-              {/* Product Details */}
-              <div className="p-6 space-y-4 flex-1 flex flex-col justify-between">
+              {/* Details */}
+              <div className="p-5 flex-1 flex flex-col justify-between">
                 <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-brand-blue uppercase tracking-wider">
-                      {product.capacity}
-                    </span>
-                    <span className="text-[10px] font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full">
-                      {product.packaging}
-                    </span>
-                  </div>
+                  <p className="text-xs font-semibold text-brand-blue mb-1">{product.capacity}</p>
+                  <h3 className="font-bold text-lg text-slate-900">{product.name}</h3>
+                  <p className="text-xs text-slate-500 mt-0.5">{product.tagline}</p>
 
-                  <h3 className="font-display font-extrabold text-xl text-slate-900 mt-1">
-                    {product.name}
-                  </h3>
-
-                  <p className="text-xs text-slate-500 font-medium italic mt-0.5">
-                    "{product.tagline}"
-                  </p>
-
-                  {/* Features List */}
-                  <div className="mt-4 space-y-2">
-                    {product.features.map((feat) => (
-                      <div key={feat} className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                        <CheckCircle2 className="w-4 h-4 text-brand-aqua shrink-0" />
-                        <span>{feat}</span>
+                  <div className="mt-3 space-y-1.5">
+                    {product.features.map((f) => (
+                      <div key={f} className="flex items-center gap-2 text-xs text-slate-700">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-brand-blue shrink-0" />
+                        {f}
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Purification Seal & CTA */}
-                <div className="pt-4 border-t border-slate-100 space-y-3">
-                  <div className="text-[11px] font-bold text-slate-500 flex items-center gap-1.5">
-                    <ShieldCheck className="w-4 h-4 text-brand-blue" />
-                    <span>Purification: {product.purification}</span>
-                  </div>
-
+                <div className="pt-4 mt-4 border-t border-slate-100">
+                  <p className="text-[11px] text-slate-500 mb-2">Packaging: {product.packaging}</p>
                   <button
                     onClick={() => onSelectProductForInquiry(product.name)}
-                    className="w-full py-3 px-4 bg-gradient-to-r from-brand-blue to-brand-aqua hover:from-brand-darkblue hover:to-brand-blue text-white font-bold text-xs rounded-xl shadow-md transition-all flex items-center justify-center gap-2 group"
+                    className="w-full py-2.5 bg-brand-blue hover:bg-brand-darkblue text-white font-semibold text-xs rounded-lg transition-colors flex items-center justify-center gap-1.5"
                   >
-                    <span>Inquire Bulk & Distribution Rates</span>
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    Inquire Rates
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
-
             </motion.div>
           ))}
         </div>

@@ -18,99 +18,19 @@ html {
 
 body {
   overflow-x: hidden;
-  background: linear-gradient(180deg, #FFFFFF 0%, #F4FAFF 50%, #FFFFFF 100%);
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #F0F7FF;
-}
-::-webkit-scrollbar-thumb {
-  background: #0086FF;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #0068C9;
-}
-
-/* Glassmorphism Classes */
+/* Navbar glass */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(0, 134, 255, 0.12);
+  border: 1px solid rgba(0, 134, 255, 0.08);
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(37, 208, 255, 0.18);
-  box-shadow: 0 10px 30px -5px rgba(0, 134, 255, 0.06);
-}
-
-.glass-card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.glass-card-hover:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 40px -10px rgba(0, 134, 255, 0.15);
-  border-color: rgba(0, 134, 255, 0.35);
-}
-
-/* Water Gradient Text */
+/* Water Gradient Text — used sparingly */
 .text-gradient-water {
   background: linear-gradient(135deg, #0086FF 0%, #25D0FF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-gold {
-  background: linear-gradient(135deg, #D8B15A 0%, #F3D382 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Glowing Accent Border */
-.gold-glow {
-  box-shadow: 0 0 25px rgba(216, 177, 90, 0.25);
-}
-
-/* Water Ripple Pulse on Hover */
-.ripple-button {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple-button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 5px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  opacity: 0;
-  border-radius: 100%;
-  transform: scale(1, 1) translate(-50%);
-  transform-origin: 50% 50%;
-}
-
-@keyframes ripple {
-  0% {
-    transform: scale(0, 0);
-    opacity: 0.5;
-  }
-  100% {
-    transform: scale(40, 40);
-    opacity: 0;
-  }
-}
-
-.ripple-button:focus:not(:active)::after {
-  animation: ripple 1s ease-out;
 }
