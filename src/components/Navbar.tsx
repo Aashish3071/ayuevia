@@ -26,6 +26,17 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
     { name: "FAQ", href: "#faq" },
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
@@ -44,6 +55,7 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
               <a
                 key={link.name}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm font-medium text-slate-700 hover:text-brand-blue transition-colors"
               >
                 {link.name}
@@ -106,7 +118,10 @@ export default function Navbar({ onOpenDistributorModal }: NavbarProps) {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  handleNavClick(e, link.href);
+                }}
                 className="px-3 py-2.5 rounded-lg text-sm font-medium text-slate-800 hover:bg-brand-sky hover:text-brand-blue transition-colors"
               >
                 {link.name}

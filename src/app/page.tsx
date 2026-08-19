@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AboutSection from "@/components/AboutSection";
@@ -18,6 +18,18 @@ import DistributorModal from "@/components/DistributorModal";
 export default function Home() {
   const [distributorModalOpen, setDistributorModalOpen] = useState(false);
   const [selectedRequirement, setSelectedRequirement] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   const handleOpenInquiryWithRequirement = (req: string) => {
     setSelectedRequirement(req);

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import AboutSection from "@/components/AboutSection";
 import QualityCertifications from "@/components/QualityCertifications";
@@ -10,6 +10,12 @@ import DistributorModal from "@/components/DistributorModal";
 
 export default function AboutClient() {
   const [distributorModalOpen, setDistributorModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen bg-white text-slate-900 pt-20 sm:pt-24">

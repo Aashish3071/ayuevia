@@ -53,6 +53,10 @@ export default function Hero({ onOpenDistributorModal }: HeroProps) {
 
               <a
                 href="#contact"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                }}
                 className="w-full sm:w-auto px-6 sm:px-7 py-3.5 bg-white text-slate-800 font-semibold text-sm rounded-lg border border-slate-200 hover:border-brand-blue/30 transition-colors text-center shadow-sm"
               >
                 Contact Us

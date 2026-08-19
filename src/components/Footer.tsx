@@ -5,6 +5,17 @@ import { Phone, MapPin, Award } from "lucide-react";
 import Logo from "./Logo";
 
 export default function Footer() {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <footer className="bg-slate-950 text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,11 +32,11 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="text-sm font-bold text-white">Quick Links</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#hero" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
-              <li><a href="#products" className="hover:text-white transition-colors">Products</a></li>
-              <li><a href="#process" className="hover:text-white transition-colors">Purification</a></li>
-              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+              <li><a href="#hero" onClick={(e) => handleLinkClick(e, "#hero")} className="hover:text-white transition-colors">Home</a></li>
+              <li><a href="#about" onClick={(e) => handleLinkClick(e, "#about")} className="hover:text-white transition-colors">About</a></li>
+              <li><a href="#products" onClick={(e) => handleLinkClick(e, "#products")} className="hover:text-white transition-colors">Products</a></li>
+              <li><a href="#process" onClick={(e) => handleLinkClick(e, "#process")} className="hover:text-white transition-colors">Purification</a></li>
+              <li><a href="#faq" onClick={(e) => handleLinkClick(e, "#faq")} className="hover:text-white transition-colors">FAQ</a></li>
             </ul>
           </div>
 
@@ -33,9 +44,9 @@ export default function Footer() {
           <div className="space-y-3">
             <h4 className="text-sm font-bold text-white">Company</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><a href="#quality" className="hover:text-white transition-colors">Quality</a></li>
-              <li><a href="#business" className="hover:text-white transition-colors">Who We Serve</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+              <li><a href="#why-choose-us" onClick={(e) => handleLinkClick(e, "#why-choose-us")} className="hover:text-white transition-colors">Why Choose Us</a></li>
+              <li><a href="#business" onClick={(e) => handleLinkClick(e, "#business")} className="hover:text-white transition-colors">Who We Serve</a></li>
+              <li><a href="#contact" onClick={(e) => handleLinkClick(e, "#contact")} className="hover:text-white transition-colors">Contact</a></li>
             </ul>
           </div>
 

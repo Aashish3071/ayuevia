@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -9,6 +9,12 @@ import DistributorModal from "@/components/DistributorModal";
 
 export default function DistributorClient() {
   const [distributorModalOpen, setDistributorModalOpen] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen bg-white text-slate-900 pt-20 sm:pt-24">

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import ProductSection from "@/components/ProductSection";
 import Footer from "@/components/Footer";
@@ -11,6 +11,12 @@ import ContactSection from "@/components/ContactSection";
 export default function ProductsClient() {
   const [distributorModalOpen, setDistributorModalOpen] = useState(false);
   const [selectedReq, setSelectedReq] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.scrollTo(0, 0);
+    }
+  }, []);
 
   return (
     <main className="min-h-screen bg-white text-slate-900 pt-20 sm:pt-24">

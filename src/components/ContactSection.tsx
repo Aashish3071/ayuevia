@@ -124,6 +124,7 @@ export default function ContactSection({ initialRequirement = "" }: ContactSecti
                 style={{ border: 0 }}
                 allowFullScreen
                 loading="lazy"
+                tabIndex={-1}
                 referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
