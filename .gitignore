@@ -32,3 +32,6 @@ next-env.d.ts
 # OS metadata
 .DS_Store
 Thumbs.db
+
+# Local marketing assets (never committed to GitHub)
+/marketing_creatives/
